@@ -21,5 +21,5 @@ CREATE TABLE keys (
 
 CREATE TABLE tech_support (
     chat_id INT NOT NULL,
-    hit_count INT NOT NULL,
+    hit_count INT NOT NULL
 );
