@@ -4,7 +4,7 @@ import telebot
 bot = telebot.TeleBot("6990521857:AAGwG10cfmZAQ_xQ87eeyAU3HTn4dJ7f2NI")
 
 # Обработчик сообщений
-@bot.message_handler(func=lambda message: True)
+@bot.message_handler(commands=["start"])
 def echo_all(message):
     # Создание текстового сообщения для ответа
     text = message.text
@@ -18,6 +18,10 @@ def echo_all(message):
 
     # Отправка сообщения с клавиатурой
     bot.send_message(message.chat.id, text, reply_markup=keyboard)
+
+@bot.message_handler(commands=["_get_chat_id"])
+def get_chat_id(message):
+    bot.send_message(message.chat.id, str(message.chat.id))
 
 # Запуск бота
 bot.polling()
