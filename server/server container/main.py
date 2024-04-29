@@ -10,11 +10,11 @@ def echo_all(message):
     text = message.text
 
     # Создание клавиатуры с кнопками
-    keyboard = telebot.types.ReplyKeyboardMarkup(row_width=2)
+    keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     btn1 = telebot.types.KeyboardButton("Отзывы")
     btn2 = telebot.types.KeyboardButton("Тех-поддержка")
     btn3 = telebot.types.KeyboardButton("Рефералочки")
-    keyboard.add(btn1, btn2, btn3)
+    keyboard.add(btn1).row(btn2, btn3)
 
     # Отправка сообщения с клавиатурой
     bot.send_message(message.chat.id, text, reply_markup=keyboard)
