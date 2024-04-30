@@ -41,11 +41,23 @@ def textMessageHandlers(message):
         # redirect to him
         
         try:
-            databaseCursor.execute("SELECT version()")
-            single_row = databaseCursor.fetchone()
-            bot.send_message(message.chat.id, single_row)
+            # Get admin with less hit_count
+            databaseCursor.execute("SELECT admin_username FROM tech_support ORDER BY hit_count ASC LIMIT 1;")
+            username = databaseCursor.fetchone()
+            databaseCursor.execute("""UPDATE tech_support
+                                        SET hit_count = hit_count + 1
+                                        WHERE admin_username IN (
+                                          SELECT admin_username
+                                          FROM tech_support
+                                          ORDER BY hit_count ASC
+                                          LIMIT 1
+                                        );
+                                        """)
+            bot.send_message(message.chat.id, f"Обратитесть к администратору: {username[0]}")
         except (Exception, psycopg2.DatabaseError):
             bot.send_message(message.chat.id, str(error))
+    elif message.text == "Отзывы":
+        bot.send_message(message.chat.id, "Отзывы в канале: t.me/ggstore_community/2")
         
 
 # Запуск бота
