@@ -3,7 +3,8 @@ import psycopg2
 
 bot = telebot.TeleBot("6990521857:AAGwG10cfmZAQ_xQ87eeyAU3HTn4dJ7f2NI")
 databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="5432")
-databaseConnection.close()
+databaseCursor = databaseConnection.cursor()
+
 
 # Обработчик /start
 @bot.message_handler(commands=["start"])
@@ -31,11 +32,21 @@ def get_chat_id(message):
 # Обработчик текстовых сообщений
 @bot.message_handler(content_types=['text'])
 def textMessageHandlers(message):
-    if message.text == "Рефералочки":
+    # remove users message (thats pretty)
+    bot.delete_message(message.chat.id, message.id)
+
+    if message.text == "Тех-поддержка":
         # make a request to base
         # find admin with less hit count
         # redirect to him
-        pass
+        
+        try:
+            databaseCursor.execute("SELECT version()")
+            single_row = databaseCursor.fetchone()
+            bot.send_message(message.chat.id, single_row)
+        except (Exception, psycopg2.DatabaseError):
+            bot.send_message(message.chat.id, str(error))
+        
 
 # Запуск бота
 bot.polling()
