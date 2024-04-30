@@ -1,9 +1,11 @@
 import telebot
+import psycopg2
 
-# Создание экземпляра бота с токеном
 bot = telebot.TeleBot("6990521857:AAGwG10cfmZAQ_xQ87eeyAU3HTn4dJ7f2NI")
+databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="5432")
+databaseConnection.close()
 
-# Обработчик сообщений
+# Обработчик /start
 @bot.message_handler(commands=["start"])
 def echo_all(message):
     # Создание текстового сообщения для ответа
@@ -19,9 +21,21 @@ def echo_all(message):
     # Отправка сообщения с клавиатурой
     bot.send_message(message.chat.id, text, reply_markup=keyboard)
 
-@bot.message_handler(commands=["_get_chat_id"])
+
+# Обработчик /_get_chat_id
+@bot.message_handler(commands=["getchatid"])
 def get_chat_id(message):
     bot.send_message(message.chat.id, str(message.chat.id))
+
+
+# Обработчик текстовых сообщений
+@bot.message_handler(content_types=['text'])
+def textMessageHandlers(message):
+    if message.text == "Рефералочки":
+        # make a request to base
+        # find admin with less hit count
+        # redirect to him
+        pass
 
 # Запуск бота
 bot.polling()
