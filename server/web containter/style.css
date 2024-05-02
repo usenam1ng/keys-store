@@ -1,0 +1,153 @@
+/* Общие стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Контейнер логотипа */
+.logo-container {
+    position: absolute;
+    top: 3px;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Логотип */
+.logo {
+    width: 260px;
+    height: 50px;
+    background: linear-gradient(to right, #7700ff, #E249B6);
+    border-radius: 14px;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.separator {
+    margin-top: 100px;
+    z-index: 1;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.games-list {display: flex}
+
+.games-list {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.games-list::-webkit-scrollbar {
+    display: none;
+}
+
+.games-list .item {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.games-list .item:hover, .code:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.games-list .item img {
+    width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.games-list .item .info {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    border-bottom: 1px solid #7700ff;
+}
+
+.games-list .item .price {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.code {
+    margin: 0 auto;
+    width: 200px;
+    height: 230px;
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.code:hover{
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.code img {
+    width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.code .info {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(9 / 21 * 100%);
+    height: 100%;
+    background: #ffffff;
+    z-index: -1;
+}
