@@ -22,3 +22,11 @@ services:
       - DATABASE_URL=postgresql://app_user:jaeQuu7ziweeci5e@db:5432/app_db
     ports:
       - "8080:8080"
+
+  frontend:
+    build: web_front_container
+    container_name: web_frontend
+    depends_on:
+      - app
+    ports:
+      - "80:80"
