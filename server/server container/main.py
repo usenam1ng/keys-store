@@ -54,8 +54,8 @@ def textMessageHandlers(message):
                                         );
                                         """)
             bot.send_message(message.chat.id, f"Обратитесть к администратору: {username[0]}")
-        except (Exception, psycopg2.DatabaseError):
-            bot.send_message(message.chat.id, str(error))
+        except (Exception, psycopg2.DatabaseError) as e:
+            bot.send_message(message.chat.id, str(e))
     elif message.text == "Отзывы":
         bot.send_message(message.chat.id, "Отзывы в канале: t.me/ggstore_community/2")
         
