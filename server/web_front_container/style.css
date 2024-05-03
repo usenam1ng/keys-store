@@ -150,11 +150,11 @@ body {
 }
 
 .popupWindowWrapper {
-    z-index: 1001;
-    width:20%;
-    height:100%;
-    margin:0px auto;
-    padding:10%;
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .popupWindow{
