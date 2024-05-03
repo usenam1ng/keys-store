@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+body {
+    background: rgb(247, 247, 247);
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
 /* Контейнер логотипа */
 .logo-container {
     position: absolute;
@@ -25,7 +30,6 @@
     color: white;
     font-size: 26px;
     font-weight: bold;
-    font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: center;
     line-height: 50px;
     cursor: pointer;
@@ -40,7 +44,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .games-list {display: flex}
@@ -55,8 +58,8 @@
     padding: 20px;
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
+    background: #b9b9b9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .games-list::-webkit-scrollbar {
@@ -69,12 +72,12 @@
     padding: 20px;
     background: #fff;
     border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s;
 }
 
 .games-list .item:hover, .code:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(126, 5, 255, 0.3);
 }
 
 .games-list .item img {
@@ -92,7 +95,6 @@
     padding: 10px 0;
     font-size: 20px;
     font-weight: bold;
-    font-family: 'Helvetica', 'Arial', sans-serif;
     border-bottom: 1px solid #7700ff;
 }
 
@@ -103,13 +105,11 @@
     padding: 10px 0;
     font-size: 15px;
     font-weight: bold;
-    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .code {
     margin: 0 auto;
     width: 200px;
-    height: 230px;
     margin-top: 20px;
     padding: 20px;
     background: #fff;
@@ -119,7 +119,7 @@
 }
 
 .code:hover{
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(126, 5, 255, 0.3);
 }
 
 .code img {
@@ -137,17 +137,110 @@
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
-    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(9 / 21 * 100%);
-    height: 100%;
-    background: #ffffff;
-    z-index: -1;
+.container{
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 920px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+.container .description {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.container img{
+    width: 50%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.container form{
+    width: 50%;
+}
+
+form h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form-control label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+button.form-control {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 2px #7700ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button.form-control:hover{
+    background-color: #7700ff;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+button.form-control2 {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background-color: #7700ff;
+    color: #ffffff;
+    border: solid 2px #7700ff;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button.form-control2:hover{
+    background-color: #ffffff;
+    color: #000000;
+    border: solid 2px #E249B6;
+    box-shadow: 0 10px 30px rgba(126, 5, 255, 0.5);
+}
+
+.close-button{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
