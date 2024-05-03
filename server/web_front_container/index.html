@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <div class="code">
+    <div class="code" onclick="javascript:psnPopupShow()">
         <img src="src/psn.jpeg">
         <div class="info">
             PSN
@@ -114,28 +114,45 @@
         </div>
     </div>  
 
-    <div class="container">
-        <img src="src/psplus.png">
-        <h2>PS Plus Premium</h2>
 
-        <div class="description">
-            <label for="name">Расширенная подписка для PlayStation. В неё входит всё, что есть в PS Plus Essential, а ещё она откроет каталог с сотнями консольных хитов (будто Game Pass от Xbox).</label>
+    <div class="popupWindowWrapper" id="popupPSPLUS">
+        <div class="popupWindow">
+                <img src="src/psplus.png">
+                <h2>PS Plus Premium</h2>
+
+                <div class="description">
+                    <label for="name">Расширенная подписка для PlayStation. В неё входит всё, что есть в PS Plus Essential, а ещё она откроет каталог с сотнями консольных хитов (будто Game Pass от Xbox).</label>
+                </div>
+
+                <button class="form-control">
+                    <label for="name">1 месяц</label>
+                </button>
+
+                <button class="form-control">
+                    <label for="email">3 месяца</label>
+                </button>
+
+                <button class="form-control">
+                    <label for="phone">12 месяцев</label>
+                </button>
+
+                <button class="form-control2" type="submit">КУПИТЬ</button>
         </div>
-
-        <button class="form-control">
-            <label for="name">1 месяц</label>
-        </button>
-
-        <button class="form-control">
-            <label for="email">3 месяца</label>
-        </button>
-
-        <button class="form-control">
-            <label for="phone">12 месяцев</label>
-        </button>
-
-        <button class="form-control2" type="submit">КУПИТЬ</button>
     </div>
-
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Скрыть PopUp при загрузке страницы    
+            psnPopupHide();
+        });
+        // Функция отображения PopUp
+        function psnPopupShow(){
+            $("#popupPSPLUS").show();
+        }
+        // Функция скрытия PopUp
+        function psnPopupHide(){
+            $("#popupPSPLUS").hide();
+        }
+    </script>
 </body>
 </html>
