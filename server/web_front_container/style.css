@@ -161,7 +161,7 @@ body {
 .popupWindowWrapper {
     z-index: 1;
     position: fixed;
-    top: 50%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -195,7 +195,7 @@ body {
     padding: 20px;
     background: #fff;
     border-radius: 18px;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -300,15 +300,10 @@ button.form-control2:hover{
 }
 
 
-@media only screen and (max-width: 450px)  {
+@media only screen and (max-width: 415px)  {
     .popupWindow {
-<<<<<<< HEAD
         width: 340px;
-        height: 570px;
-=======
-        width: 350px;
-        height: 640px;
->>>>>>> parent of 86e92f8 (фыв)
+        height: 610px;
     }
 
     .popupWindow img{
@@ -317,7 +312,6 @@ button.form-control2:hover{
 
     .popupWindow .description {
         margin-top: auto;
-        font-size: 13px;
     }
 
     .popupWindow .lot_name {
@@ -329,13 +323,14 @@ button.form-control2:hover{
     }
 
     button.form-control {
-        padding: 6px;
-        font-size: 13px;
+        font-size: 14px;
     }
 
     button.form-control2 {
-        padding: 6px;
-        font-size: 13px;
+        font-size: 14px;
     }
-    
+
+    .popupWindow .description {
+        font-size: 14px;
+    }
 }
