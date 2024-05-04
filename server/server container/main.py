@@ -1,7 +1,7 @@
 import telebot
 import psycopg2
 
-bot = telebot.TeleBot("6990521857:AAGwG10cfmZAQ_xQ87eeyAU3HTn4dJ7f2NI")
+bot = telebot.TeleBot("5000035098:AAFzHkyiU8Fso5QUlSbcWfGMJyAh2QB3ZnY/test")
 databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="5432")
 databaseCursor = databaseConnection.cursor()
 
@@ -59,6 +59,5 @@ def textMessageHandlers(message):
     elif message.text == "Отзывы":
         bot.send_message(message.chat.id, "Отзывы в канале: t.me/ggstore_community/2")
         
-
 # Запуск бота
 bot.polling()
