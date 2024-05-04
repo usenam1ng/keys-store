@@ -141,10 +141,29 @@
                     <label for="phone">12 месяцев</label>
                 </button>
 
-                <button class="form-control2" type="submit">КУПИТЬ</button>
+                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
         </div>
         </p>
     </div>
+
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script>
+        let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+
+        tg.expand(); //расширяем на все окно
+
+        psPlusBuyButton = document.getElementById("PSPLUSBUY");
+
+        psPlusBuyButton.addEventListener('click', function(){
+            // send some string back
+            alert("button clicked");
+            alert(`WHOA HELLOW MR. ${tg.initDataUnsafe.user.first_name}, your id is: ${tg.initDataUnsafe.user.id}`);
+            tg.sendData(`WHOA HELLOW MR. ${tg.initDataUnsafe.user.first_name}, your id is: ${tg.initDataUnsafe.user.id}`);
+        });
+
+    </script>
 
     <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
     <script>

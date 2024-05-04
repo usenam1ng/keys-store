@@ -58,6 +58,14 @@ def textMessageHandlers(message):
             bot.send_message(message.chat.id, str(e))
     elif message.text == "Отзывы":
         bot.send_message(message.chat.id, "Отзывы в канале: t.me/ggstore_community/2")
-        
+
+
+# Обработчик сообщений из webApp
+@bot.message_handler(content_types="web_app_data") 
+def webAppHandler(message):
+   print(message) 
+   print(message.web_app_data.data) 
+   bot.send_message(str(message.web_app_data.data))
+
 # Запуск бота
 bot.polling()
