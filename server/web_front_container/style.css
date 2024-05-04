@@ -299,11 +299,11 @@ button.form-control2:hover{
 @media only screen and (max-width: 415px)  {
     .popupWindow {
         width: 350px;
-        height: 650px;
+        height: 640px;
     }
 
     .popupWindow img{
-        margin: 0 auto;
+        margin-top: -15px;
         display: flex;
         align-items: center;
         justify-content: center;
