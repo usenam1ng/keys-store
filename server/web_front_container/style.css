@@ -201,6 +201,14 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.popupWindow .lot_name {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
 .popupWindow img{
     margin: 0 auto;
     display: flex;
@@ -247,7 +255,6 @@ button.closebutton {
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
-    
     transition: all 0.3s ease;
 }
 
@@ -307,6 +314,14 @@ button.form-control2:hover{
 
     .popupWindow .description {
         margin-top: auto;
+    }
+
+    .popupWindow .lot_name {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
     }
     
 }
