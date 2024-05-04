@@ -2,6 +2,6 @@ FROM postgres:latest
 
 RUN mkdir -p /var/lib/postgresql/data
 
-EXPOSE 5432
+EXPOSE 7777
 
 COPY init.sql /docker-entrypoint-initdb.d/ 

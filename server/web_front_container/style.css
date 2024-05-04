@@ -167,6 +167,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: ani 0.7s forwards;
+}
+
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 .popupWindow{
@@ -183,7 +191,6 @@ body {
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
 }
 
 .popupWindow .description {
@@ -193,7 +200,6 @@ body {
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
 }
 
 .popupWindow img{
@@ -204,6 +210,13 @@ body {
     width: 50%;
     border-radius: 20px;
     object-fit: cover;
+    opacity: 0;
+    animation: ani 0.7s forwards;
+}
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 .popupWindow form{
@@ -225,9 +238,25 @@ form h2{
     margin-bottom: 5px;
 }
 
+button.closebutton {
+    width: 25px;
+    height: 25px;
+    margin-left: 330px;
+    margin-top: 10px;
+    background-image: url('src/7782773.png');
+    background-size: cover;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
 button.form-control {
     width: 100%;
-    border: none;
     padding: 10px;
     background-color: #ffffff;
     color: #000000;
@@ -250,7 +279,6 @@ button.form-control2 {
     align-items: flex-end;
     justify-content: center;
     width: 100%;
-    border: none;
     padding: 10px;
     background-color: #7700ff;
     color: #ffffff;
