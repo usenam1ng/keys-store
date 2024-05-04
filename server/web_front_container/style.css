@@ -302,8 +302,13 @@ button.form-control2:hover{
 
 @media only screen and (max-width: 450px)  {
     .popupWindow {
+<<<<<<< HEAD
         width: 340px;
         height: 570px;
+=======
+        width: 350px;
+        height: 640px;
+>>>>>>> parent of 86e92f8 (фыв)
     }
 
     .popupWindow img{
