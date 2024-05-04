@@ -304,7 +304,7 @@ button.form-control2:hover{
 
 @media only screen and (max-width: 415px)  {
     .popupWindow {
-        width: 350px;
+        width: 340px;
         height: 640px;
     }
 
