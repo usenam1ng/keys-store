@@ -190,7 +190,6 @@ body {
 }
 
 .popupWindow .description {
-    margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
     background: #fff;
@@ -303,7 +302,7 @@ button.form-control2:hover{
 @media only screen and (max-width: 415px)  {
     .popupWindow {
         width: 340px;
-        height: 610px;
+        height: 540px;
     }
 
     .popupWindow img{
@@ -323,14 +322,17 @@ button.form-control2:hover{
     }
 
     button.form-control {
+        padding: 7px;
         font-size: 13px;
     }
 
     button.form-control2 {
+        padding: 7px;
         font-size: 13px;
     }
 
     .popupWindow .description {
+        padding: 7px;
         font-size: 13px;
     }
 }
