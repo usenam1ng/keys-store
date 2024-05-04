@@ -195,6 +195,7 @@ body {
     padding: 20px;
     background: #fff;
     border-radius: 18px;
+    font-size: 18px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -299,10 +300,10 @@ button.form-control2:hover{
 }
 
 
-@media only screen and (max-width: 415px)  {
+@media only screen and (max-width: 450px)  {
     .popupWindow {
         width: 340px;
-        height: 640px;
+        height: 570px;
     }
 
     .popupWindow img{
@@ -311,6 +312,7 @@ button.form-control2:hover{
 
     .popupWindow .description {
         margin-top: auto;
+        font-size: 13px;
     }
 
     .popupWindow .lot_name {
@@ -319,6 +321,16 @@ button.form-control2:hover{
         align-items: center;
         justify-content: center;
         font-size: 18px;
+    }
+
+    button.form-control {
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    button.form-control2 {
+        padding: 6px;
+        font-size: 13px;
     }
     
 }
