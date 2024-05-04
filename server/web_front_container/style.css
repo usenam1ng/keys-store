@@ -246,7 +246,6 @@ button.closebutton {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
     text-align: center;
     
     transition: all 0.3s ease;
@@ -304,13 +303,10 @@ button.form-control2:hover{
 
     .popupWindow img{
         margin-top: -15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 48%;
-        border-radius: 20px;
-        object-fit: cover;
-        opacity: 0;
-        animation: ani 0.7s forwards;
     }
+
+    .popupWindow .description {
+        margin-top: auto;
+    }
+    
 }
