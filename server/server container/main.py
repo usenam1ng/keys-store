@@ -1,10 +1,16 @@
 import telebot
 import psycopg2
+import threading
+from time import sleep
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 bot = telebot.TeleBot("5000035098:AAFzHkyiU8Fso5QUlSbcWfGMJyAh2QB3ZnY/test")
 databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="5432")
 databaseCursor = databaseConnection.cursor()
-
 
 # Обработчик /start
 @bot.message_handler(commands=["start"])
@@ -65,7 +71,39 @@ def textMessageHandlers(message):
 def webAppHandler(message):
    print(message) 
    print(message.web_app_data.data) 
-   bot.send_message(str(message.web_app_data.data))
+   bot.send_message("5000971271", str(message.web_app_data.data))
+
+@app.route('/request', methods=['POST', 'OPTIONS'])
+def request_handler():
+    print("RUNNING")
+    
+    data = request.get_json()
+    buyType = data.get('type')
+    user_id = data.get('user_id')
+
+    if buyType not in ['rent', 'buy']:
+        return jsonify({'error': 'Invalid type'}), 400
+
+    bot.send_message("5000971271", f"type={buyType};from={user_id}")
+    print("sent message")
+    return jsonify({'success': 'Request processed'}), 200
 
 # Запуск бота
-bot.polling()
+def startBot():
+    bot.polling()
+
+def flaskApiServer():
+    app.run(host='0.0.0.0', port=9999)
+
+if __name__ == "__main__":
+    
+    t1 = threading.Thread(target=startBot)
+    t2 = threading.Thread(target=flaskApiServer)
+
+    t1.start()
+    t2.start()
+
+    t1.join()
+    t2.join()
+
+    print("All threads exited. Terminating...")

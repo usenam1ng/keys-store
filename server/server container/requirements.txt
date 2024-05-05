@@ -1,2 +1,4 @@
 telebot
 psycopg2-binary
+Flask
+flask-cors
