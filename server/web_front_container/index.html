@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>GG Store</title>
 </head>
 <body>
@@ -154,34 +154,35 @@
         psPlusBuyButton = document.getElementById("PSPLUSBUY");
 
         psPlusBuyButton.addEventListener('click', function(){
-            // send some string back
-            // alert("starting fetch");
 
-            $.ajax({
-                url: 'http://37.193.60.52:9999/request',
-                method: 'POST',
-                contentType: 'application/json',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                data: JSON.stringify({
-                    type: 'buy',
-                    length: null,
-                    product: 'PSPLUS PREMIUM 3',
-                    user_id: tg.initDataUnsafe.user.id,
-                }),
-                success: function(response) {
-                    console.log(response);
-                },
-                error: function(error) {
-                    console.log(error);
-                },
-                complete: function() {
-                    tg.close();
-                }
-            });
+        const buttons = document.querySelectorAll('input[name="subscription"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
         
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'buy',
+                length: selectedValue,
+                product: 'PSPLUS PREMIUM ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
         });
 
     </script>

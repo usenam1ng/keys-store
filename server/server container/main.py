@@ -8,7 +8,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-bot = telebot.TeleBot("5000035098:AAFzHkyiU8Fso5QUlSbcWfGMJyAh2QB3ZnY/test")
+# bot = telebot.TeleBot("5000035098:AAFzHkyiU8Fso5QUlSbcWfGMJyAh2QB3ZnY/test")
+bot = telebot.TeleBot("5000224649:AAGmCkeaxsD7ZCzPnYavep7rsOY-V9BoSsc/test")
 databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="6666")
 databaseCursor = databaseConnection.cursor()
 
