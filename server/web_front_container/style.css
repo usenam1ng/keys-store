@@ -206,6 +206,8 @@ body {
     font-size: 25px;
 }
 
+
+
 .popupWindow img{
     margin: 0 auto;
     display: flex;
@@ -255,9 +257,11 @@ button.closebutton {
     transition: all 0.3s ease;
 }
 
-button.form-control {
+.radio-wrapper {
+    display: inline-block;
     width: 100%;
     padding: 10px;
+    margin: 10px 0;
     background-color: #ffffff;
     color: #000000;
     border: solid 2px #7700ff;
@@ -268,10 +272,28 @@ button.form-control {
     transition: all 0.3s ease;
 }
 
-button.form-control:hover{
+.radio-wrapper:hover{
+    border: solid 2px #E249B6;
+    box-shadow: 0 10px 30px rgba(251, 0, 255, 0.4);
+}
+
+input {
+    display: none;
+}
+
+input[type="radio"]:checked + label{
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
     background-color: #7700ff;
     color: #ffffff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: solid 2px #E249B6;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 button.form-control2 {
