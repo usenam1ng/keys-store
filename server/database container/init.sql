@@ -1,7 +1,6 @@
 CREATE TABLE users (
-    chat_id INT PRIMARY KEY,
-    nickname VARCHAR(64) NOT NULL,
-    password VARCHAR(260) NOT NULL,
+    chat_id INT8 PRIMARY KEY,
+    user_id INT8 NOT NULL,
     bought_id INT NOT NULL
 );
 

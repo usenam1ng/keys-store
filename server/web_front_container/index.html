@@ -158,30 +158,33 @@
 
         psPlusBuyButton.addEventListener('click', function(){
             // send some string back
-            alert("starting fetch");
+            // alert("starting fetch");
 
             $.ajax({
-            url: 'http://37.193.60.52:9999/request',
-            method: 'POST',
-            contentType: 'application/json',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            data: JSON.stringify({
-                type: 'buy',
-                length: null,
-                product: 'PSPLUS PREMIUM 3',
-                user_id: tg.initDataUnsafe.user.id,
-            }),
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
-
+                url: 'http://37.193.60.52:9999/request',
+                method: 'POST',
+                contentType: 'application/json',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify({
+                    type: 'buy',
+                    length: null,
+                    product: 'PSPLUS PREMIUM 3',
+                    user_id: tg.initDataUnsafe.user.id,
+                }),
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                },
+                complete: function() {
+                    tg.close();
+                }
+            });
+        
         });
 
     </script>

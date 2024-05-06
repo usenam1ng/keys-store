@@ -12,12 +12,36 @@ bot = telebot.TeleBot("5000035098:AAFzHkyiU8Fso5QUlSbcWfGMJyAh2QB3ZnY/test")
 databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="6666")
 databaseCursor = databaseConnection.cursor()
 
+def registerUser(message):
+    cursor = databaseConnection.cursor()
+    select_statement = """
+        SELECT * FROM users
+        WHERE chat_id = %s AND user_id = %s"""
+
+    cursor.execute(select_statement, (message.chat.id, message.from_user.id))
+    result = cursor.fetchall()
+
+    if len(result) == 0:
+        try:
+            insert_statement = """
+            INSERT INTO users (chat_id, user_id, bought_id)
+            VALUES (%s, %s, %s)"""
+
+            # Execute the INSERT statement with the provided data
+            databaseCursor.execute(insert_statement, (message.chat.id, message.from_user.id, 0))
+
+            # Commit the changes to the database
+            databaseConnection.commit()
+
+            print("registered user")
+        except (Exception, psycopg2.DatabaseError) as e:
+            bot.send_message(message.chat.id, str(e))
+    else:
+        bot.send_message(message.chat.id, "Добро пожаловать, снова.")
+
 # Обработчик /start
 @bot.message_handler(commands=["start"])
 def echo_all(message):
-    # Создание текстового сообщения для ответа
-    text = message.text
-
     # Создание клавиатуры с кнопками
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     btn1 = telebot.types.KeyboardButton("Отзывы")
@@ -26,7 +50,9 @@ def echo_all(message):
     keyboard.add(btn1).row(btn2, btn3)
 
     # Отправка сообщения с клавиатурой
-    bot.send_message(message.chat.id, text, reply_markup=keyboard)
+    bot.send_message(message.chat.id, "Привет! Добро пожаловать в наш маленький уютный магазинчик. Доступ к сайту осуществляется по кнопке *Магазин*. Ну и снизу красивое меню тоже, потыкай", reply_markup=keyboard)
+
+    registerUser(message);
 
 
 # Обработчик /_get_chat_id
@@ -84,7 +110,36 @@ def request_handler():
     if buyType not in ['rent', 'buy']:
         return jsonify({'error': 'Invalid type'}), 400
 
-    bot.send_message("5000971271", str(data))
+
+
+    # bot.send_message("5000971271", str(data))
+    try:
+        select_statement = """
+            SELECT chat_id
+            FROM users
+            WHERE user_id = %s
+        """
+        databaseCursor.execute(select_statement, (user_id,))
+
+        # Fetch the result
+        result = databaseCursor.fetchone()
+
+        # Close the cursor and the connection
+        
+        # Return the chat_id if the user was found, otherwise return None
+        chat_id = result[0]
+
+        bot.send_message(chat_id, "BUTTON PUSH!!!!!:");
+        bot.send_message(chat_id, str(data));
+
+        return jsonify({'success': 'Request processed'}), 200
+
+    except (Exception, psycopg2.DatabaseError) as error:
+        print("Error getting user's chat_id: ", error)
+        return None
+
+
+
     print("sent message")
     return jsonify({'success': 'Request processed'}), 200
 
