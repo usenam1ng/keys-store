@@ -84,7 +84,7 @@ def request_handler():
     if buyType not in ['rent', 'buy']:
         return jsonify({'error': 'Invalid type'}), 400
 
-    bot.send_message("5000971271", f"type={buyType};from={user_id}")
+    bot.send_message("5000971271", str(data))
     print("sent message")
     return jsonify({'success': 'Request processed'}), 200
 

@@ -169,7 +169,9 @@
                 'Content-Type': 'application/json'
             },
             data: JSON.stringify({
-                "type": 'buy',
+                type: 'buy',
+                length: null,
+                product: 'PSPLUS PREMIUM 3',
                 user_id: tg.initDataUnsafe.user.id,
             }),
             success: function(response) {
