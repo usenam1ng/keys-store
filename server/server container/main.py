@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 bot = telebot.TeleBot("5000035098:AAFzHkyiU8Fso5QUlSbcWfGMJyAh2QB3ZnY/test")
-databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="5432")
+databaseConnection = psycopg2.connect(dbname="app", user='app_user', password="jaeQuu7ziweeci5e", host="db", port="6666")
 databaseCursor = databaseConnection.cursor()
 
 # Обработчик /start
@@ -73,7 +73,7 @@ def webAppHandler(message):
    print(message.web_app_data.data) 
    bot.send_message("5000971271", str(message.web_app_data.data))
 
-@app.route('/request', methods=['POST', 'OPTIONS'])
+@app.route('/request', methods=['POST'])
 def request_handler():
     print("RUNNING")
     
@@ -93,6 +93,7 @@ def startBot():
     bot.polling()
 
 def flaskApiServer():
+    print("RUNNING")
     app.run(host='0.0.0.0', port=9999)
 
 if __name__ == "__main__":

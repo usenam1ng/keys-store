@@ -10,8 +10,9 @@ services:
       - POSTGRES_DB=app
       - POSTGRES_USER=app_user
       - POSTGRES_PASSWORD=jaeQuu7ziweeci5e
+      - PGPORT=6666
     ports:
-      - "5432:5432"
+      - "6666:6666"
 
   app:
     build: server container
@@ -19,7 +20,7 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://app_user:jaeQuu7ziweeci5e@db:5432/app_db
+      - DATABASE_URL=postgresql://app_user:jaeQuu7ziweeci5e@db:6666/app_db
     ports:
       - "8080:8080"
       - "9999:9999"

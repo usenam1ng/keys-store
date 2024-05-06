@@ -161,21 +161,27 @@
             alert("button clicked");
             alert(`WHOA HELLOW MR. ${tg.initDataUnsafe.user.first_name}, your id is: ${tg.initDataUnsafe.user.id}`);
             alert("starting fetch");
-            fetch('http://37.193.159.183:9999/request', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    type: 'buy',
-                    user_id: tg.initDataUnsafe.user.id,
-                }),
-                })
-                .then(response => alert(response.json()))
-                .then(data => alert(data))
-                .catch(error => alert(error));
-            
-            alert("thats it");
+
+            $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                "type": 'buy',
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                alert(response);
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
+
         });
 
     </script>
