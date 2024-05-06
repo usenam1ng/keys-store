@@ -158,8 +158,6 @@
 
         psPlusBuyButton.addEventListener('click', function(){
             // send some string back
-            alert("button clicked");
-            alert(`WHOA HELLOW MR. ${tg.initDataUnsafe.user.first_name}, your id is: ${tg.initDataUnsafe.user.id}`);
             alert("starting fetch");
 
             $.ajax({
@@ -175,10 +173,10 @@
                 user_id: tg.initDataUnsafe.user.id,
             }),
             success: function(response) {
-                alert(response);
+                console.log(response);
             },
             error: function(error) {
-                alert(error);
+                console.log(error);
             }
         });
 
