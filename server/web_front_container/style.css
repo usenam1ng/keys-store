@@ -258,6 +258,9 @@ button.closebutton {
 }
 
 .radio-wrapper {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     display: inline-block;
     width: 100%;
     padding: 10px;
@@ -343,17 +346,22 @@ button.form-control2:hover{
         font-size: 17px;
     }
 
-    button.form-control {
-        padding: 7px;
-        font-size: 13px;
-    }
-
     button.form-control2 {
         padding: 7px;
         font-size: 13px;
     }
 
     .popupWindow .description {
+        padding: 7px;
+        font-size: 13px;
+    }
+
+    .radio-wrapper {
+        padding: 7px;
+        font-size: 13px;
+    }
+
+    input[type="radio"]:checked + label{
         padding: 7px;
         font-size: 13px;
     }
