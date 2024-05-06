@@ -77,7 +77,7 @@ body {
     padding: 20px;
     background: #fff;
     border-radius: 18px;
-    background: #b9b9b9;
+    border: solid 1px #7700ff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
