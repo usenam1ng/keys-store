@@ -22,3 +22,4 @@ CREATE TABLE tech_support (
     admin_username TEXT NOT NULL,
     hit_count INT NOT NULL
 );
+

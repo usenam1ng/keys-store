@@ -130,12 +130,25 @@ def request_handler():
 
         bot.send_message(chat_id, "BUTTON PUSH!!!!!:");
         bot.send_message(chat_id, str(data));
+        incomingBuy(chat_id, data)
 
         return jsonify({'success': 'Request processed'}), 200
 
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error getting user's chat_id: ", error)
         return None
+
+def incomingBuy(chat_id, data):
+    keyboard = telebot.types.InlineKeyboardMarkup()
+    inlinebutton = telebot.types.InlineKeyboardButton(text="🔥 Оплатить 🔥", url="https://google.ru")
+    keyboard.add(inlinebutton)
+    bot.send_message(chat_id, inlinebutton, "")
+
+    bot.send_message(chat_id, "Оплата заказа доступна по кнопке под сообщением.", reply_markup=keyboard)
+
+
+
+
 
 # Запуск бота
 def startBot():
