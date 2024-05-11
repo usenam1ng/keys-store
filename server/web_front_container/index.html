@@ -131,13 +131,13 @@
                     <label for="name">Карта пополнения для покупок в магазине Playstation Store</label>
                 </div>
 
-                <input type="radio" id="5dollar" name="paycode" value="5dollar" />
+                <input type="radio" id="5dollar" name="paycode_PSN" value="5dollar" />
                 <label class="radio-wrapper" for="5dollar">5$</label>
 
-                <input type="radio" id="10dollar" name="paycode" value="10dollar" />
+                <input type="radio" id="10dollar" name="paycode_PSN" value="10dollar" />
                 <label class="radio-wrapper" for="10dollar">10$</label>
 
-                <input type="radio" id="50dollar" name="paycode" value="50dollar" />
+                <input type="radio" id="50dollar" name="paycode_PSN" value="50dollar" />
                 <label class="radio-wrapper" for="50dollar">50$</label>
 
                 <button class="form-control2" type="submit" id="PNSBUY">КУПИТЬ</button>
@@ -158,14 +158,14 @@
                     <label for="name">Расширенная подписка для PlayStation. В неё входит всё, что есть в PS Plus Essential, а ещё она откроет каталог с сотнями консольных хитов (будто Game Pass от Xbox).</label>
                 </div>
 
-                <input type="radio" id="1month" name="subscription" value="1month" />
-                <label class="radio-wrapper" for="1month">1 месяц</label>
+                <input type="radio" id="1month_psplus" name="subscription_psplus" value="1month" />
+                <label class="radio-wrapper" for="1month_psplus">1 месяц</label>
 
-                <input type="radio" id="3month" name="subscription" value="3month" />
-                <label class="radio-wrapper" for="3month">3 месяца</label>
+                <input type="radio" id="3month_psplus" name="subscription_psplus" value="3month" />
+                <label class="radio-wrapper" for="3month_psplus">3 месяца</label>
 
-                <input type="radio" id="12month" name="subscription" value="12month" />
-                <label class="radio-wrapper" for="12month">12 месяцев</label>
+                <input type="radio" id="12month_psplus" name="subscription_psplus" value="12month" />
+                <label class="radio-wrapper" for="12month_psplus">12 месяцев</label>
 
                 <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
         </div>
@@ -185,14 +185,14 @@
                     <label for="name">Позволяет играть в мультиплеерные эксклюзивы Nintendo, а ещё она откроет каталог с сотнями ретро игр со старых консолей Nintendo.</label>
                 </div>
 
-                <input type="radio" id="1month" name="subscription" value="1month" />
-                <label class="radio-wrapper" for="1month">1 месяц</label>
+                <input type="radio" id="1month_nonlie" name="subscription_nonline" value="1month" />
+                <label class="radio-wrapper" for="1month_nonlie">1 месяц</label>
 
-                <input type="radio" id="3month" name="subscription" value="3month" />
-                <label class="radio-wrapper" for="3month">3 месяца</label>
+                <input type="radio" id="3month_nonlie" name="subscription_nonline" value="3month" />
+                <label class="radio-wrapper" for="3month_nonlie">3 месяца</label>
 
-                <input type="radio" id="12month" name="subscription" value="12month" />
-                <label class="radio-wrapper" for="12month">12 месяцев</label>
+                <input type="radio" id="12month_nonlie" name="subscription_nonline" value="12month" />
+                <label class="radio-wrapper" for="12month_nonlie">12 месяцев</label>
 
                 <button class="form-control2" type="submit" id="NONLINEBUY">КУПИТЬ</button>
         </div>
@@ -212,14 +212,14 @@
                     <label for="name">Карта пополнения для покупок в магазине Playstation Store</label>
                 </div>
 
-                <input type="radio" id="5dollar" name="paycode" value="5dollar" />
-                <label class="radio-wrapper" for="1month">5$</label>
+                <input type="radio" id="5dollar_eshop" name="paycode_eshop" value="5dollar" />
+                <label class="radio-wrapper" for="5dollar_eshop">5$</label>
 
-                <input type="radio" id="10dollar" name="paycode" value="10dollar" />
-                <label class="radio-wrapper" for="3month">10$</label>
+                <input type="radio" id="10dollar_eshop" name="paycode_eshop" value="10dollar" />
+                <label class="radio-wrapper" for="10dollar_eshop">10$</label>
 
-                <input type="radio" id="50dollar" name="paycode" value="50dollar" />
-                <label class="radio-wrapper" for="12month">50$</label>
+                <input type="radio" id="50dollar_eshop" name="paycode_eshop" value="50dollar" />
+                <label class="radio-wrapper" for="50dollar_eshop">50$</label>
 
                 <button class="form-control2" type="submit" id="eShopBUY">КУПИТЬ</button>
         </div>
@@ -239,14 +239,14 @@
                     <label for="name">Пополнение казахстанского аккаунта Steam</label>
                 </div>
 
-                <input type="radio" id="5dollar" name="paycode" value="5dollar" />
-                <label class="radio-wrapper" for="1month">5$</label>
+                <input type="radio" id="5dollar_steam" name="paycode_steam" value="5dollar" />
+                <label class="radio-wrapper" for="5dollar_steam">5$</label>
 
-                <input type="radio" id="10dollar" name="paycode" value="10dollar" />
-                <label class="radio-wrapper" for="3month">10$</label>
+                <input type="radio" id="10dollar_steam" name="paycode_steam" value="10dollar" />
+                <label class="radio-wrapper" for="10dollar_steam">10$</label>
 
-                <input type="radio" id="50dollar" name="paycode" value="50dollar" />
-                <label class="radio-wrapper" for="12month">50$</label>
+                <input type="radio" id="50dollar_steam" name="paycode_steam" value="50dollar" />
+                <label class="radio-wrapper" for="50dollar_steam">50$</label>
 
                 <button class="form-control2" type="submit" id="STEAMBUY">КУПИТЬ</button>
         </div>
@@ -265,7 +265,7 @@
         PSNBuyButton = document.getElementById("PNSBUY");
         PSNBuyButton.addEventListener('click', function(){
 
-        const buttons = document.querySelectorAll('input[name="paycode"]');
+        const buttons = document.querySelectorAll('input[name="paycode_PSN"]');
         const selectedButton = Array.from(buttons).find(button => button.checked);
         const selectedValue = selectedButton.value;
         
@@ -300,7 +300,7 @@
         psPlusBuyButton = document.getElementById("PSPLUSBUY");
         psPlusBuyButton.addEventListener('click', function(){
 
-        const buttons = document.querySelectorAll('input[name="subscription"]');
+        const buttons = document.querySelectorAll('input[name="subscription_psplus"]');
         const selectedButton = Array.from(buttons).find(button => button.checked);
         const selectedValue = selectedButton.value;
         
@@ -334,7 +334,7 @@
         nonlineBuyButton = document.getElementById("NONLINEBUY");
         nonlineBuyButton.addEventListener('click', function(){
 
-        const buttons = document.querySelectorAll('input[name="subscription"]');
+        const buttons = document.querySelectorAll('input[name="subscription_nonline"]');
         const selectedButton = Array.from(buttons).find(button => button.checked);
         const selectedValue = selectedButton.value;
         
@@ -369,7 +369,7 @@
         eShopBuyButton = document.getElementById("eShopBUY");
         eShopBuyButton.addEventListener('click', function(){
 
-        const buttons = document.querySelectorAll('input[name="paycode"]');
+        const buttons = document.querySelectorAll('input[name="paycode_eshop"]');
         const selectedButton = Array.from(buttons).find(button => button.checked);
         const selectedValue = selectedButton.value;
         
@@ -404,7 +404,7 @@
         SteampBuyButton = document.getElementById("STEAMBUY");
         SteampBuyButton.addEventListener('click', function(){
 
-        const buttons = document.querySelectorAll('input[name="paycode"]');
+        const buttons = document.querySelectorAll('input[name="paycode_steam"]');
         const selectedButton = Array.from(buttons).find(button => button.checked);
         const selectedValue = selectedButton.value;
         
