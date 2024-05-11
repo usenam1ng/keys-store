@@ -131,16 +131,16 @@
                     <label for="name">Карта пополнения для покупок в магазине Playstation Store</label>
                 </div>
 
-                <input type="radio" id="1month" name="subscription" value="1month" />
-                <label class="radio-wrapper" for="1month">1 месяц</label>
+                <input type="radio" id="5dollar" name="paycode" value="5dollar" />
+                <label class="radio-wrapper" for="5dollar">5$</label>
 
-                <input type="radio" id="3month" name="subscription" value="3month" />
-                <label class="radio-wrapper" for="3month">3 месяца</label>
+                <input type="radio" id="10dollar" name="paycode" value="10dollar" />
+                <label class="radio-wrapper" for="10dollar">10$</label>
 
-                <input type="radio" id="12month" name="subscription" value="12month" />
-                <label class="radio-wrapper" for="12month">12 месяцев</label>
+                <input type="radio" id="50dollar" name="paycode" value="50dollar" />
+                <label class="radio-wrapper" for="50dollar">50$</label>
 
-                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+                <button class="form-control2" type="submit" id="PNSBUY">КУПИТЬ</button>
         </div>
         </p>
     </div>
@@ -194,7 +194,7 @@
                 <input type="radio" id="12month" name="subscription" value="12month" />
                 <label class="radio-wrapper" for="12month">12 месяцев</label>
 
-                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+                <button class="form-control2" type="submit" id="NONLINEBUY">КУПИТЬ</button>
         </div>
         </p>
     </div>
@@ -212,16 +212,16 @@
                     <label for="name">Карта пополнения для покупок в магазине Playstation Store</label>
                 </div>
 
-                <input type="radio" id="1month" name="subscription" value="1month" />
-                <label class="radio-wrapper" for="1month">1 месяц</label>
+                <input type="radio" id="5dollar" name="paycode" value="5dollar" />
+                <label class="radio-wrapper" for="1month">5$</label>
 
-                <input type="radio" id="3month" name="subscription" value="3month" />
-                <label class="radio-wrapper" for="3month">3 месяца</label>
+                <input type="radio" id="10dollar" name="paycode" value="10dollar" />
+                <label class="radio-wrapper" for="3month">10$</label>
 
-                <input type="radio" id="12month" name="subscription" value="12month" />
-                <label class="radio-wrapper" for="12month">12 месяцев</label>
+                <input type="radio" id="50dollar" name="paycode" value="50dollar" />
+                <label class="radio-wrapper" for="12month">50$</label>
 
-                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+                <button class="form-control2" type="submit" id="eShopBUY">КУПИТЬ</button>
         </div>
         </p>
     </div>
@@ -239,16 +239,16 @@
                     <label for="name">Пополнение казахстанского аккаунта Steam</label>
                 </div>
 
-                <input type="radio" id="1month" name="subscription" value="1month" />
+                <input type="radio" id="5dollar" name="paycode" value="5dollar" />
                 <label class="radio-wrapper" for="1month">5$</label>
 
-                <input type="radio" id="3month" name="subscription" value="3month" />
+                <input type="radio" id="10dollar" name="paycode" value="10dollar" />
                 <label class="radio-wrapper" for="3month">10$</label>
 
-                <input type="radio" id="12month" name="subscription" value="12month" />
+                <input type="radio" id="50dollar" name="paycode" value="50dollar" />
                 <label class="radio-wrapper" for="12month">50$</label>
 
-                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+                <button class="form-control2" type="submit" id="STEAMBUY">КУПИТЬ</button>
         </div>
         </p>
     </div>
@@ -262,8 +262,42 @@
 
         tg.expand(); //расширяем на все окно
 
-        psPlusBuyButton = document.getElementById("PSPLUSBUY");
+        PSNBuyButton = document.getElementById("PNSBUY");
+        PSNBuyButton.addEventListener('click', function(){
 
+        const buttons = document.querySelectorAll('input[name="paycode"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'buy',
+                length: selectedValue,
+                product: 'PSN paycode' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+        
+
+        psPlusBuyButton = document.getElementById("PSPLUSBUY");
         psPlusBuyButton.addEventListener('click', function(){
 
         const buttons = document.querySelectorAll('input[name="subscription"]');
@@ -281,7 +315,111 @@
             data: JSON.stringify({
                 type: 'buy',
                 length: selectedValue,
-                product: 'PSPLUS PREMIUM ' + selectedValue,
+                product: 'PSPus subscription ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+
+        nonlineBuyButton = document.getElementById("NONLINEBUY");
+        nonlineBuyButton.addEventListener('click', function(){
+
+        const buttons = document.querySelectorAll('input[name="subscription"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'buy',
+                length: selectedValue,
+                product: 'NONLINE subscription ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+
+
+        eShopBuyButton = document.getElementById("eShopBUY");
+        eShopBuyButton.addEventListener('click', function(){
+
+        const buttons = document.querySelectorAll('input[name="paycode"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'buy',
+                length: selectedValue,
+                product: 'eShop paycode ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+
+
+        SteampBuyButton = document.getElementById("STEAMBUY");
+        SteampBuyButton.addEventListener('click', function(){
+
+        const buttons = document.querySelectorAll('input[name="paycode"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'buy',
+                length: selectedValue,
+                product: 'Steam paycode ' + selectedValue,
                 user_id: tg.initDataUnsafe.user.id,
             }),
             success: function(response) {
