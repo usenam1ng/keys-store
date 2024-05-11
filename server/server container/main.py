@@ -111,8 +111,6 @@ def request_handler():
     if buyType not in ['rent', 'buy']:
         return jsonify({'error': 'Invalid type'}), 400
 
-
-
     # bot.send_message("5000971271", str(data))
     try:
         select_statement = """
@@ -138,11 +136,6 @@ def request_handler():
     except (Exception, psycopg2.DatabaseError) as error:
         print("Error getting user's chat_id: ", error)
         return None
-
-
-
-    print("sent message")
-    return jsonify({'success': 'Request processed'}), 200
 
 # Запуск бота
 def startBot():
