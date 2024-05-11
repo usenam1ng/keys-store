@@ -79,14 +79,14 @@
     </h2>
     
 
-    <div class="code">
+    <div class="code" onclick="javascript:NOnlinePopupShow()">
         <img src="src/Nonline.png">
         <div class="info">
             Nintendo Online
         </div>
     </div>
 
-    <div class="code">
+    <div class="code" onclick="javascript:psplusPopupShow()">
         <img src="src/psplus.jpg">
         <div class="info">
             Paystation Plus
@@ -97,7 +97,7 @@
         Коды оплаты
     </h2>
 
-    <div class="code">
+    <div class="code" onclick="javascript:EshopPopupShow()">
         <img src="src/eshop.jpg">
         <div class="info">
             eShop
@@ -111,18 +111,47 @@
         </div>
     </div>  
 
-    <div class="code">
+    <div class="code" onclick="javascript:SteamPopupShow()">
         <img src="src/steam.jpg">
         <div class="info">
             Steam
         </div>
     </div>  
 
-    <div class="popupWindowWrapper" id="popupPSPLUS">
+    # всплывающее окно Playstation Store
+
+    <div class="popupWindowWrapper" id="popupPSN">
         <p>
             <div class="popupWindow">
                 <button class="closebutton" onclick="javascript:psnPopupHide()"></button>
                 <img src="src/psn.jpeg">
+                <h2>Пополнение аккаунта PSN</h2>
+
+                <div class="description">
+                    <label for="name">Карта пополнения для покупок в магазине Playstation Store</label>
+                </div>
+
+                <input type="radio" id="1month" name="subscription" value="1month" />
+                <label class="radio-wrapper" for="1month">1 месяц</label>
+
+                <input type="radio" id="3month" name="subscription" value="3month" />
+                <label class="radio-wrapper" for="3month">3 месяца</label>
+
+                <input type="radio" id="12month" name="subscription" value="12month" />
+                <label class="radio-wrapper" for="12month">12 месяцев</label>
+
+                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+        </div>
+        </p>
+    </div>
+
+    # всплывающее окно Playstation Plus
+
+    <div class="popupWindowWrapper" id="popupPSPLUS">
+        <p>
+            <div class="popupWindow">
+                <button class="closebutton" onclick="javascript:psplusPopupHide()"></button>
+                <img src="src/psplus.jpg">
                 <h2>PS Plus Premium</h2>
 
                 <div class="description">
@@ -142,6 +171,88 @@
         </div>
         </p>
     </div>
+
+    # всплывающее окно Nintendo Online
+
+    <div class="popupWindowWrapper" id="popupNOnline">
+        <p>
+            <div class="popupWindow">
+                <button class="closebutton" onclick="javascript:NOnlinePopupHide()"></button>
+                <img src="src/Nonline.png">
+                <h2>Nintendo Online</h2>
+
+                <div class="description">
+                    <label for="name">Позволяет играть в мультиплеерные эксклюзивы Nintendo, а ещё она откроет каталог с сотнями ретро игр со старых консолей Nintendo.</label>
+                </div>
+
+                <input type="radio" id="1month" name="subscription" value="1month" />
+                <label class="radio-wrapper" for="1month">1 месяц</label>
+
+                <input type="radio" id="3month" name="subscription" value="3month" />
+                <label class="radio-wrapper" for="3month">3 месяца</label>
+
+                <input type="radio" id="12month" name="subscription" value="12month" />
+                <label class="radio-wrapper" for="12month">12 месяцев</label>
+
+                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+        </div>
+        </p>
+    </div>
+
+    # всплывающее окно Nintendo eShop
+
+    <div class="popupWindowWrapper" id="popupEshop">
+        <p>
+            <div class="popupWindow">
+                <button class="closebutton" onclick="javascript:EshopPopupHide()"></button>
+                <img src="src/eshop.jpg">
+                <h2>Nintendo eShop</h2>
+
+                <div class="description">
+                    <label for="name">Карта пополнения для покупок в магазине Playstation Store</label>
+                </div>
+
+                <input type="radio" id="1month" name="subscription" value="1month" />
+                <label class="radio-wrapper" for="1month">1 месяц</label>
+
+                <input type="radio" id="3month" name="subscription" value="3month" />
+                <label class="radio-wrapper" for="3month">3 месяца</label>
+
+                <input type="radio" id="12month" name="subscription" value="12month" />
+                <label class="radio-wrapper" for="12month">12 месяцев</label>
+
+                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+        </div>
+        </p>
+    </div>
+
+    # всплывающее окно Steam
+
+    <div class="popupWindowWrapper" id="popupSteam">
+        <p>
+            <div class="popupWindow">
+                <button class="closebutton" onclick="javascript:SteamPopupHide()"></button>
+                <img src="src/steam.jpg">
+                <h2>Пополнение аккаунта Steam</h2>
+
+                <div class="description">
+                    <label for="name">Пополнение казахстанского аккаунта Steam</label>
+                </div>
+
+                <input type="radio" id="1month" name="subscription" value="1month" />
+                <label class="radio-wrapper" for="1month">5$</label>
+
+                <input type="radio" id="3month" name="subscription" value="3month" />
+                <label class="radio-wrapper" for="3month">10$</label>
+
+                <input type="radio" id="12month" name="subscription" value="12month" />
+                <label class="radio-wrapper" for="12month">50$</label>
+
+                <button class="form-control2" type="submit" id="PSPLUSBUY">КУПИТЬ</button>
+        </div>
+        </p>
+    </div>
+
 
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -191,6 +302,10 @@
     <script>
     $(document).ready(function(){   
         psnPopupHide();
+        psplusPopupHide();
+        NOnlinePopupHide();
+        EshopPopupHide();
+        SteamPopupHide();
         function hasTouch() {
     return 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
@@ -214,12 +329,48 @@
     } catch (ex) {}
     }
             });
-            function psnPopupShow(){
+            function psplusPopupShow(){
                 $("#popupPSPLUS").show();
                 $("#overlay").show();
             }
-            function psnPopupHide(){
+            function psplusPopupHide(){
                 $("#popupPSPLUS").hide();
+                $("#overlay").hide();
+            }
+
+            function psnPopupShow(){
+                $("#popupPSN").show();
+                $("#overlay").show();
+            }
+            function psnPopupHide(){
+                $("#popupPSN").hide();
+                $("#overlay").hide();
+            }
+
+            function NOnlinePopupShow(){
+                $("#popupNOnline").show();
+                $("#overlay").show();
+            }
+            function NOnlinePopupHide(){
+                $("#popupNOnline").hide();
+                $("#overlay").hide();
+            }
+
+            function EshopPopupShow(){
+                $("#popupEshop").show();
+                $("#overlay").show();
+            }
+            function EshopPopupHide(){
+                $("#popupEshop").hide();
+                $("#overlay").hide();
+            }
+
+            function SteamPopupShow(){
+                $("#popupSteam").show();
+                $("#overlay").show();
+            }
+            function SteamPopupHide(){
+                $("#popupSteam").hide();
                 $("#overlay").hide();
             }
     </script>
