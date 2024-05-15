@@ -20,6 +20,7 @@ CREATE TABLE keys (
 
 CREATE TABLE tech_support (
     admin_username TEXT NOT NULL,
+    admin_chat_id INT8 NOT NULL, 
     hit_count INT NOT NULL
 );
 

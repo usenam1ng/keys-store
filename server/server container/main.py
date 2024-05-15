@@ -40,6 +40,42 @@ def registerUser(message):
     else:
         bot.send_message(message.chat.id, "Добро пожаловать, снова.")
 
+
+@bot.message_handler(commands=['iamadminnow_SUPERSECRETPASSWORD'])
+def addAdmin(message):
+    # CREATE TABLE tech_support (
+    #     admin_username TEXT NOT NULL,
+    #     admin_chat_id INT8 NOT NULL, 
+    #     hit_count INT NOT NULL
+    # );
+
+    cursor = databaseConnection.cursor()
+    select_statement = """
+        SELECT * FROM tech_support
+        WHERE admin_chat_id = %s"""
+
+    cursor.execute(select_statement, (message.chat.id,))
+    result = cursor.fetchall()
+
+    if len(result) == 0:
+        try:
+            insert_statement = """
+            INSERT INTO tech_support (admin_username, admin_chat_id, hit_count)
+            VALUES (%s, %s, %s)"""
+
+            # Execute the INSERT statement with the provided data
+            databaseCursor.execute(insert_statement, (message.from_user.username, message.chat.id, 0))
+
+            # Commit the changes to the database
+            databaseConnection.commit()
+
+            print("added admin ", (message.from_user.username, message.chat.id, 0))
+            bot.send_message(message.chat.id, "Вы теперь администратор.")
+        except (Exception, psycopg2.DatabaseError) as e:
+            bot.send_message(message.chat.id, str(e))
+    else:
+        bot.send_message(message.chat.id, "Вы уже администратор.")
+
 # Обработчик /start
 @bot.message_handler(commands=["start"])
 def echo_all(message):
@@ -86,7 +122,7 @@ def textMessageHandlers(message):
                                           LIMIT 1
                                         );
                                         """)
-            bot.send_message(message.chat.id, f"Обратитесть к администратору: {username[0]}")
+            bot.send_message(message.chat.id, f"Обратитесть к администратору: @{username[0]}")
         except (Exception, psycopg2.DatabaseError) as e:
             bot.send_message(message.chat.id, str(e))
     elif message.text == "Отзывы":
