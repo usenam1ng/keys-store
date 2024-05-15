@@ -278,7 +278,7 @@
                 <input type="radio" id="1month_ZeldaMario" name="ZeldaMario_rent" value="1moth" />
                 <label class="radio-wrapper" for="1month_ZeldaMario">Месяц</label>
 
-                <input type="radio" id="2month_ZeldaMari" name="ZeldaMario_rent" value="2month" />
+                <input type="radio" id="2month_ZeldaMario" name="ZeldaMario_rent" value="2month" />
                 <label class="radio-wrapper" for="2month_ZeldaMario">Два месяца</label>
 
                 <button class="form-control2" type="rent" id="ZELDAMARIORENT">АРЕНДОВАТЬ</button>
@@ -480,6 +480,108 @@
                 type: 'buy',
                 length: selectedValue,
                 product: 'Steam paycode ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+
+        Top10rentButton = document.getElementById("TOP10RENT");
+        Top10rentButton.addEventListener('click', function(){
+
+        const buttons = document.querySelectorAll('input[name="rent_top10"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'rent',
+                length: selectedValue,
+                product: 'rent_top10 ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+
+        ZeldaMariorentButton = document.getElementById("ZELDAMARIORENT");
+        ZeldaMariorentButton.addEventListener('click', function(){
+
+        const buttons = document.querySelectorAll('input[name="ZeldaMario_rent"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'rent',
+                length: selectedValue,
+                product: 'ZeldaMario_rent ' + selectedValue,
+                user_id: tg.initDataUnsafe.user.id,
+            }),
+            success: function(response) {
+                console.log(response);
+            },
+            error: function(error) {
+                console.log(error);
+            },
+            complete: function() {
+                tg.close();
+            }
+        });
+        });
+
+
+        WitcherrentButton = document.getElementById("WITCHERRENT");
+        WitcherrentButton.addEventListener('click', function(){
+
+        const buttons = document.querySelectorAll('input[name="Witcher_rent"]');
+        const selectedButton = Array.from(buttons).find(button => button.checked);
+        const selectedValue = selectedButton.value;
+        
+        $.ajax({
+            url: 'http://37.193.60.52:9999/request',
+            method: 'POST',
+            contentType: 'application/json',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                type: 'rent',
+                length: selectedValue,
+                product: 'Witcher_rent ' + selectedValue,
                 user_id: tg.initDataUnsafe.user.id,
             }),
             success: function(response) {
