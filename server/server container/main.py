@@ -147,7 +147,7 @@ def request_handler():
     if buyType not in ['rent', 'buy']:
         return jsonify({'error': 'Invalid type'}), 400
 
-    # bot.send_message("5000971271", str(data))
+    bot.send_message("5000971271", str(data))
     try:
         select_statement = """
             SELECT chat_id
@@ -174,9 +174,11 @@ def request_handler():
         print("Error getting user's chat_id: ", error)
         return None
 
+
+
 def incomingBuy(chat_id, data):
     keyboard = telebot.types.InlineKeyboardMarkup()
-    inlinebutton = telebot.types.InlineKeyboardButton(text="🔥 Оплатить 🔥", url="https://google.ru")
+    inlinebutton = telebot.types.InlineKeyboardButton(text="🔥 Оплатить 🔥", callback_data="https://google.ru")
     keyboard.add(inlinebutton)
     bot.send_message(chat_id, inlinebutton, "")
 

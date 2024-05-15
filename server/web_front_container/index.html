@@ -586,11 +586,14 @@
             }),
             success: function(response) {
                 console.log(response);
+                alert(response);
             },
             error: function(error) {
                 console.log(error);
+                alert(error);
             },
             complete: function() {
+                alert("complete");
                 tg.close();
             }
         });
