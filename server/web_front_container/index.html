@@ -21,17 +21,17 @@
     </h2>
 
     <section class="games-list">
-        <div class="item" onclick="javascript:NOnlinePopupShow()">
+        <div class="item" onclick="javascript:ZeldaPopupShow()">
             <img src="src/Pack 1.jpg">
             <div class="info">
-                Zelda TOTK
+                Zelda + Mario
             </div>
             <div class="price">
-                400 ₽
+                500 ₽
             </div>
         </div>
 
-        <div class="item" onclick="javascript:NOnlinePopupShow()">
+        <div class="item" onclick="javascript:WitcherPopupShow()">
             <img src="src/Pack_2.jpg">
             <div class="info">
                 Witcher 3
@@ -49,28 +49,7 @@
             <div class="price">
                 600 ₽
             </div>
-        </div>
-
-        <!-- <div class="item">
-            <img src="src/Pack 1.jpg">
-            <div class="info">
-                Witcher
-            </div>
-            <div class="price">
-                400 ₽
-            </div>
-        </div>
-
-        <div class="item">
-            <img src="src/Pack 1.jpg">
-            <div class="info">
-                Animal Crossing
-            </div>
-            <div class="price">
-                500 ₽
-            </div>
-        </div> -->
-        
+        </div>        
     </section>
 
 
@@ -266,16 +245,70 @@
                     <label for="name">10 самых популярных игр Nintendo Switch. Только отборные эксплюзивы и ААА проекты.</label>
                 </div>
 
-                <input type="radio" id="2week_Top10" name="paycode_steam" value="2week" />
+                <input type="radio" id="2week_Top10" name="Top10_rent" value="2week" />
                 <label class="radio-wrapper" for="2week_Top10">Две недели</label>
 
-                <input type="radio" id="1month_Top10" name="paycode_steam" value="1moth" />
+                <input type="radio" id="1month_Top10" name="Top10_rent" value="1moth" />
                 <label class="radio-wrapper" for="1month_Top10">Месяц</label>
 
-                <input type="radio" id="2month_Top10" name="paycode_steam" value="2month" />
+                <input type="radio" id="2month_Top10" name="Top10_rent" value="2month" />
                 <label class="radio-wrapper" for="2month_Top10">Два месяца</label>
 
-                <button class="form-control2" type="submit" id="STEAMBUY">АРЕНДОВАТЬ</button>
+                <button class="form-control2" type="rent" id="TOP10RENT">АРЕНДОВАТЬ</button>
+        </div>
+        </p>
+    </div>
+
+    # всплывающее окно Zelda
+
+    <div class="popupWindowWrapper" id="popupZelda">
+        <p>
+            <div class="popupWindow">
+                <button class="closebutton" onclick="javascript:ZeldaPopupHide()"></button>
+                <img src="src/Pack 1.jpg">
+                <h2>Zelda Tears of the Kingdom + Mario 3D World</h2>
+
+                <div class="description">
+                    <label for="name">Два отличных эксклюзива в одной подписке.</label>
+                </div>
+
+                <input type="radio" id="2week_ZeldaMario" name="ZeldaMario_rent" value="2week" />
+                <label class="radio-wrapper" for="2week_ZeldaMario">Две недели</label>
+
+                <input type="radio" id="1month_ZeldaMario" name="ZeldaMario_rent" value="1moth" />
+                <label class="radio-wrapper" for="1month_ZeldaMario">Месяц</label>
+
+                <input type="radio" id="2month_ZeldaMari" name="ZeldaMario_rent" value="2month" />
+                <label class="radio-wrapper" for="2month_ZeldaMario">Два месяца</label>
+
+                <button class="form-control2" type="rent" id="ZELDAMARIORENT">АРЕНДОВАТЬ</button>
+        </div>
+        </p>
+    </div>
+
+    # всплывающее окно Withcer
+
+    <div class="popupWindowWrapper" id="popupWitcher">
+        <p>
+            <div class="popupWindow">
+                <button class="closebutton" onclick="javascript:WitcherPopupHide()"></button>
+                <img src="src/Pack_2.jpg">
+                <h2>Witcher 3 Wild Hunt</h2>
+
+                <div class="description">
+                    <label for="name">Лучшая игра тысячелетия + два дополнения</label>
+                </div>
+
+                <input type="radio" id="2week_Witcher" name="Witcher_rent" value="2week" />
+                <label class="radio-wrapper" for="2week_Witcher">Две недели</label>
+
+                <input type="radio" id="1month_Witcher" name="Witcher_rent" value="1moth" />
+                <label class="radio-wrapper" for="1month_Witcher">Месяц</label>
+
+                <input type="radio" id="2month_Witcher" name="Witcher_rent" value="2month" />
+                <label class="radio-wrapper" for="2month_Witcher">Два месяца</label>
+
+                <button class="form-control2" type="rent" id="WITCHERRENT">АРЕНДОВАТЬ</button>
         </div>
         </p>
     </div>
@@ -472,6 +505,8 @@
         EshopPopupHide();
         SteamPopupHide();
         Top10PopupHide();
+        ZeldaPopupHide();
+        WitcherPopupHide();
         function hasTouch() {
     return 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
@@ -546,6 +581,24 @@
             }
             function Top10PopupHide(){
                 $("#popupTop10").hide();
+                $("#overlay").hide();
+            }
+
+            function ZeldaPopupShow(){
+                $("#popupZelda").show();
+                $("#overlay").show();
+            }
+            function ZeldaPopupHide(){
+                $("#popupZelda").hide();
+                $("#overlay").hide();
+            }
+
+            function WitcherPopupShow(){
+                $("#popupWitcher").show();
+                $("#overlay").show();
+            }
+            function WitcherPopupHide(){
+                $("#popupWitcher").hide();
                 $("#overlay").hide();
             }
     </script>
