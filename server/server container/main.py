@@ -121,7 +121,7 @@ def text_message_handlers(message):
     elif message.text == "Отзывы":
         bot.send_message(message.chat.id, "Отзывы в канале: t.me/ggstore_community/2")
     elif message.text == "Рефералочки":
-        referral_link = f"https://t.me/your_bot_username?start={message.from_user.id}"
+        referral_link = f"https://t.me/ggstore_bot?start={message.from_user.id}"
         bot.send_message(message.chat.id, f"Ваша реферальная ссылка: {referral_link}")
 
 @bot.message_handler(content_types="web_app_data") 
